@@ -122,6 +122,11 @@ public class MaestroElemental {
         Criatura transformada = new VinculoTerrestre(original);
         this.criaturas.put(nombreCriatura, transformada);
     }
+    
+    public Map<String, Criatura> getCriaturas() {
+        return this.criaturas;
+    }
+
 
 
 }
