@@ -15,12 +15,10 @@ public class CriaturaSalvaje extends Criatura {
                     "La energía de la criatura salvaje supera el máximo permitido");
         }
 
-        // Entrenar una salvaje puede dejarla inestable
         if (incremento > 0) {
             setEstado(EstadoEmocional.INESTABLE);
         }
 
-        // Solo actualizamos energía si pasó la validación
         sumarEnergia(incremento);
     }
 

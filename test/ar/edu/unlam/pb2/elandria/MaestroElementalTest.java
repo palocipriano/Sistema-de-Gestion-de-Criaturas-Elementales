@@ -75,5 +75,24 @@ public class MaestroElementalTest {
 
         assertEquals(EstadoEmocional.TRANQUILO, drako.getEstado());
     }
+    
+    @Test
+    public void maestroAplicaBendicionDelRioUsaPatronDecorador() throws FaltaMaestriaExcepcion {
+        MaestroElemental maestro =
+                new MaestroElemental("Ailin", 20, AfinidadElemental.AGUA);
+        CriaturaDomesticada lumi =
+                new CriaturaDomesticada("Lumi", 80, AfinidadElemental.AGUA);
+
+        maestro.agregarCriatura(lumi);
+
+        maestro.aplicarBendicionDelRio("Lumi");
+
+        Criatura criaturaTransformada = maestro.buscarCriatura("Lumi");
+
+        assertTrue(criaturaTransformada instanceof BendicionDelRio);
+        assertEquals(160, criaturaTransformada.getEnergia());
+    }
+
+    
 }
 

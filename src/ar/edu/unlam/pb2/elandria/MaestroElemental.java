@@ -80,5 +80,28 @@ public class MaestroElemental {
 
         return false;
     }
+    
+    public void aplicarBendicionDelRio(String nombreCriatura) {
+        Criatura original = buscarCriatura(nombreCriatura);
+        if (original == null) {
+            throw new IllegalArgumentException("No existe criatura con nombre: " + nombreCriatura);
+        }
+
+        Criatura transformada = new BendicionDelRio(original);
+        this.criaturas.put(nombreCriatura, transformada);
+    }
+    
+    public void aplicarAscensoDelViento(String nombreCriatura) {
+        Criatura original = buscarCriatura(nombreCriatura);
+        if (original == null) {
+            throw new IllegalArgumentException(
+                    "No existe criatura con nombre: " + nombreCriatura);
+        }
+
+        Criatura transformada = new AscensoDelViento(original);
+
+        this.criaturas.put(nombreCriatura, transformada);
+    }
+
 }
 

@@ -50,7 +50,6 @@ public abstract class Criatura {
         this.estado = estado;
     }
 
-    // Cada subtipo define su lógica de entrenamiento y pacificación
     public abstract void entrenar(int incremento);
 
     public abstract void pacificar();
