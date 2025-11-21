@@ -45,7 +45,7 @@ public class MaestroElemental {
 
         Criatura criatura = buscarCriatura(nombreCriatura);
         if (criatura == null) {
-            throw new IllegalArgumentException("No existe criatura con nombre: " + nombreCriatura);
+            throw new IllegalArgumentException("No existe una criatura con el nombre " + nombreCriatura);
         }
 
         if (!tieneMaestriaSuficientePara(criatura)) {
@@ -59,7 +59,7 @@ public class MaestroElemental {
     public void pacificarCriatura(String nombreCriatura) {
         Criatura criatura = buscarCriatura(nombreCriatura);
         if (criatura == null) {
-            throw new IllegalArgumentException("No existe criatura con nombre: " + nombreCriatura);
+            throw new IllegalArgumentException("No existe una criatura con el nombre " + nombreCriatura);
         }
         criatura.pacificar();
     }
@@ -84,7 +84,7 @@ public class MaestroElemental {
     public void aplicarBendicionDelRio(String nombreCriatura) {
         Criatura original = buscarCriatura(nombreCriatura);
         if (original == null) {
-            throw new IllegalArgumentException("No existe criatura con nombre: " + nombreCriatura);
+            throw new IllegalArgumentException("No existe una criatura con el nombre " + nombreCriatura);
         }
 
         Criatura transformada = new BendicionDelRio(original);
@@ -95,13 +95,34 @@ public class MaestroElemental {
         Criatura original = buscarCriatura(nombreCriatura);
         if (original == null) {
             throw new IllegalArgumentException(
-                    "No existe criatura con nombre: " + nombreCriatura);
+                    "No existe una criatura con el nombre " + nombreCriatura);
         }
 
         Criatura transformada = new AscensoDelViento(original);
 
         this.criaturas.put(nombreCriatura, transformada);
     }
+    
+    public void aplicarLlamaInterna(String nombreCriatura) {
+        Criatura original = buscarCriatura(nombreCriatura);
+        if (original == null) {
+            throw new IllegalArgumentException(
+                    "No existe una criatura con el nombre " + nombreCriatura);
+        }
+        Criatura transformada = new LlamaInterna(original);
+        this.criaturas.put(nombreCriatura, transformada);
+    }
+
+    public void aplicarVinculoTerrestre(String nombreCriatura) {
+        Criatura original = buscarCriatura(nombreCriatura);
+        if (original == null) {
+            throw new IllegalArgumentException(
+                    "No existe una criatura con el nombre " + nombreCriatura);
+        }
+        Criatura transformada = new VinculoTerrestre(original);
+        this.criaturas.put(nombreCriatura, transformada);
+    }
+
 
 }
 

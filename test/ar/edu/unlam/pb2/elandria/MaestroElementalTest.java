@@ -93,6 +93,42 @@ public class MaestroElementalTest {
         assertEquals(160, criaturaTransformada.getEnergia());
     }
 
+    @Test
+    public void maestroAplicaLlamaInternaComoDecorador() {
+        MaestroElemental maestro =
+                new MaestroElemental("Dario", 25, AfinidadElemental.FUEGO);
+
+        CriaturaSalvaje drako =
+                new CriaturaSalvaje("Drako", 100, AfinidadElemental.FUEGO);
+
+        maestro.agregarCriatura(drako);
+
+        maestro.aplicarLlamaInterna("Drako");
+
+        Criatura criaturaTransformada = maestro.buscarCriatura("Drako");
+
+        assertTrue(criaturaTransformada instanceof LlamaInterna);
+        assertEquals(130, criaturaTransformada.getEnergia()); 
+    }
+
+    @Test
+    public void maestroAplicaVinculoTerrestreComoDecorador() {
+        MaestroElemental maestro =
+                new MaestroElemental("Ailin", 20, AfinidadElemental.TIERRA);
+
+        CriaturaDomesticada gaia =
+                new CriaturaDomesticada("Gaia", 40, AfinidadElemental.TIERRA);
+
+        maestro.agregarCriatura(gaia);
+
+        maestro.aplicarVinculoTerrestre("Gaia");
+
+        Criatura criaturaTransformada = maestro.buscarCriatura("Gaia");
+
+        assertTrue(criaturaTransformada instanceof VinculoTerrestre);
+        assertEquals(50, criaturaTransformada.getEnergia());
+    }
+
     
 }
 

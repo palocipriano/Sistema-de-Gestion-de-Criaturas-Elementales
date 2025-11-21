@@ -12,7 +12,7 @@ public class CriaturaSalvaje extends Criatura {
 
         if (nuevaEnergia > ENERGIA_MAXIMA) {
             throw new EnergiaDesbordadaExcepcion(
-                    "La energía de la criatura salvaje supera el máximo permitido");
+                    "La energía de la criatura supera el máximo permitido");
         }
 
         if (incremento > 0) {

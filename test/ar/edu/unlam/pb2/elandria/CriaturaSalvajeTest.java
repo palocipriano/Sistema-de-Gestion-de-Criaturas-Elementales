@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class TestCriaturaSalvaje {
+public class CriaturaSalvajeTest {
 
 	 @Test
 	    public void alCrearUnaCriaturaSalvajeSeInicializaCorrectamente() {
